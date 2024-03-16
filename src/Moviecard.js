@@ -1,7 +1,7 @@
-import React from "react";
+// import React from "react";
 
-class MovieCard extends React.Component {
-
+// class MovieCard extends React.Component {
+function MovieCard(props) {
   // addStars = () => {
   //   if (this.state.star >= 5) return;
   //   //1st form
@@ -28,12 +28,12 @@ class MovieCard extends React.Component {
   // };
 
 
-  render() {
+  // render() {
     // const { title, plot, price, rating, star,fav, isInCart } = this.state;
     // const {movies: data} = this.props;      // Destructuring the props (rename the props to data)
     // console.log(data);
     
-    const {movies, addStars, decStars, handleFav, handleCart} = this.props;      // Destructuring the props
+    const {movies, addStars, decStars, handleFav, handleCart} = props;      // Destructuring the props
     const { title, plot,poster, price, rating, star,fav, isInCart } = movies;
     return (
       <div className="main">
@@ -92,7 +92,7 @@ class MovieCard extends React.Component {
       </div>
     );
   }
-}
+
 
 export default MovieCard;
 

@@ -1,9 +1,10 @@
-import React from "react";
+// import React from "react";
 import styles from "./nav.module.css";
 
-class Navbar extends React.Component {
-    render(){
-        const {count} = this.props;
+// class Navbar extends React.Component {
+function Navbar(props) {
+    // render(){
+        const {count} = props;
         return (                          
             <div className={styles.nav}> 
                 <div className={styles.title}>  Movie App </div>
@@ -19,6 +20,6 @@ class Navbar extends React.Component {
         );
     }
 
-}
+// }
 
 export default Navbar;
