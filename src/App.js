@@ -50,22 +50,39 @@ class App extends React.Component{
     }
 
     handleCart = (movie) => {
-      const {movies} = this.state;
+      let {movies, cartCount} = this.state;
       const index = movies.indexOf(movie);
 
       movies[index].isInCart = !movies[index].isInCart;
+      const addCart = movies[index].isInCart;
+
+      // if (addCart) {
+      //   this.setState({cartCount: cartCount + 1}, () => { this.setState({ movies})}
+      //   );
+      // }
+      // else {
+      //   this.setState({cartCount: cartCount - 1}, () => { this.setState({ movies})}
+      //   );
+      // }
+
+      // OR
       
-      this.setState({         //update and re-render the component
-        movies
-    });
+      if (addCart) {
+        cartCount = cartCount + 1;
+      }
+      else {
+        cartCount = cartCount - 1;
+      }
+      
+      this.setState({movies, cartCount});     //update and re-render the component
+          
     }
 
   render() {
-    const {movies} = this.state;
-    // console.log(movies);
+    const {movies, cartCount} = this.state;
     return (
       <>
-        <Navbar/>
+        <Navbar count = {cartCount} />
         <MovieList movies={movies}
                     handleAddStars={this.handleAddStars}
                     handleDecStars = {this.handleDecStars}
